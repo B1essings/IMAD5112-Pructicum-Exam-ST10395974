@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Campsite Commander</string>
+    <string name="Gear">Add Gear</string>
+    <string name="back">Back to base</string>
+    <string name="loading">Loading to base</string>
+    <string name="item_name">Item Name</string>
+    <string name="category">Category</string>
+    <string name="quantity">Quantity</string>
+    <string name="comments">Comments</string>
+    <string name="add_item">Add Item</string>
+    <string name="total_items_packed_0">Total Items Packed: 0</string>
+    <string name="items_will_appear_here">Items will appear here</string>
+    <string name="view_details">View Details</string>
+    <string name="camp_gear_manager">Camp Gear Manager</string>
+</resources>
