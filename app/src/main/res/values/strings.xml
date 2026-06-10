@@ -13,4 +13,14 @@
     <string name="view_details">View Details</string>
     <string name="camp_gear_manager">Camp Gear Manager</string>
     <string name="detailed_gear_list">Detailed Gear List</string>
+
+    <!-- Campsite Wisdom Strings -->
+    <string name="wisdom_title">🌲 Campsite Wisdom</string>
+    <string name="tip_shelter">Shelter: Pitch your tent on high ground to avoid morning puddles!</string>
+    <string name="tip_sleeping">Sleeping: Fluff your sleeping bag 20 minutes before bed for extra warmth.</string>
+    <string name="tip_hydration">Hydration: Drink before you\'re thirsty. Clear pee is happy pee!</string>
+    <string name="tip_safety">Safety: Always let someone know your expected return time.</string>
+    <string name="tip_general">General: Leave no trace. Take only pictures, leave only footprints.</string>
+    <string name="campsite_wisdom">CAMPSITE WISDOM</string>
+    <string name="checking_your_supplies">Checking your supplies...</string>
 </resources>

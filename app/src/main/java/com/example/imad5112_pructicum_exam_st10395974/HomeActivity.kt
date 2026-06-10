@@ -7,7 +7,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlin.jvm.java
 
 class HomeActivity : AppCompatActivity() {
 
@@ -45,7 +44,9 @@ class HomeActivity : AppCompatActivity() {
         btnViewDetails = findViewById(R.id.btnViewDetails)
 
         // Sample Data
-        initializeData()
+        if (itemNames.isEmpty()) {
+            initializeData()
+        }
 
         // Display Existing Data
         displayItems()
@@ -56,20 +57,20 @@ class HomeActivity : AppCompatActivity() {
         }
 
         btnViewDetails.setOnClickListener {
-
-            val intent = Intent(this, DetailActivity::class.java)
-
-            intent.putStringArrayListExtra("ITEM_NAMES", itemNames)
-            intent.putStringArrayListExtra("CATEGORIES", categories)
-            intent.putIntegerArrayListExtra("QUANTITIES", quantities)
-            intent.putStringArrayListExtra("COMMENTS", comments)
-
-            startActivity(intent)
+            if (itemNames.isEmpty()) {
+                Toast.makeText(this, "No items to view", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, DetailActivity::class.java)
+                intent.putStringArrayListExtra("ITEM_NAMES", itemNames)
+                intent.putStringArrayListExtra("CATEGORIES", categories)
+                intent.putIntegerArrayListExtra("QUANTITIES", quantities)
+                intent.putStringArrayListExtra("COMMENTS", comments)
+                startActivity(intent)
+            }
         }
     }
 
     private fun initializeData() {
-
         itemNames.add("Tent")
         categories.add("Shelter")
         quantities.add(1)
@@ -87,68 +88,53 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun addItem() {
+        val itemName = edtItemName.text.toString().trim()
+        val category = edtCategory.text.toString().trim()
+        val quantityText = edtQuantity.text.toString().trim()
+        val comment = edtComments.text.toString().trim()
 
-        val itemName = edtItemName.text.toString()
-        val category = edtCategory.text.toString()
-        val quantityText = edtQuantity.text.toString()
-        val comment = edtComments.text.toString()
+        if (itemName.isEmpty() || category.isEmpty() || quantityText.isEmpty() || comment.isEmpty()) {
+            Toast.makeText(this, "Please complete all fields", Toast.LENGTH_SHORT).show()
+            return
+        }
 
-        if (itemName.isEmpty() ||
-            category.isEmpty() ||
-            quantityText.isEmpty() ||
-            comment.isEmpty()
-        ) {
-            Toast.makeText(
-                this,
-                "Please complete all fields",
-                Toast.LENGTH_SHORT
-            ).show()
+        val quantity = quantityText.toIntOrNull()
+        if (quantity == null) {
+            Toast.makeText(this, "Please enter a valid number for quantity", Toast.LENGTH_SHORT).show()
             return
         }
 
         itemNames.add(itemName)
         categories.add(category)
-        quantities.add(quantityText.toInt())
+        quantities.add(quantity)
         comments.add(comment)
 
         displayItems()
         calculateTotalItems()
         clearFields()
 
-        Toast.makeText(
-            this,
-            "Item Added Successfully",
-            Toast.LENGTH_SHORT
-        ).show()
+        Toast.makeText(this, "Item Added Successfully", Toast.LENGTH_SHORT).show()
     }
 
     private fun calculateTotalItems() {
-
-        var totalItems = 0
-
-        for (quantity in quantities) {
-            totalItems += quantity
+        var total = 0
+        for (q in quantities) {
+            total += q
         }
-
-        txtTotalItems.text = "Total Items Packed: $totalItems"
+        txtTotalItems.text = "Total Items Packed: $total"
     }
 
     private fun displayItems() {
-
         var output = ""
-
         for (i in itemNames.indices) {
-
             output += "Item: ${itemNames[i]}\n"
             output += "Category: ${categories[i]}\n"
             output += "Quantity: ${quantities[i]}\n\n"
         }
-
-        txtItems.text = output
+        txtItems.text = if (output.isEmpty()) "Items will appear here" else output
     }
 
     private fun clearFields() {
-
         edtItemName.text.clear()
         edtCategory.text.clear()
         edtQuantity.text.clear()
