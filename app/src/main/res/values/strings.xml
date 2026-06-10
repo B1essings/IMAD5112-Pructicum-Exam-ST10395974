@@ -12,4 +12,5 @@
     <string name="items_will_appear_here">Items will appear here</string>
     <string name="view_details">View Details</string>
     <string name="camp_gear_manager">Camp Gear Manager</string>
+    <string name="detailed_gear_list">Detailed Gear List</string>
 </resources>
