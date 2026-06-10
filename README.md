@@ -36,8 +36,8 @@ Displays a running list of added items.
 Calculates and displays the total number of packed items using a loop.
 
 Provides navigation to the Detailed View screen.
-<img width="242" height="537" alt="Screenshot 2026-06-10 at 13 07 36" src="https://github.com/user-attachments/assets/c64f1b1e-1825-461b-b7d7-57f4b5bfb917" />
 
+<img width="242" height="537" alt="Screenshot 2026-06-10 at 13 07 36" src="https://github.com/user-attachments/assets/c64f1b1e-1825-461b-b7d7-57f4b5bfb917" />
 
 Detailed View Screen
 
@@ -45,6 +45,7 @@ Displays complete information for all stored gear items.
 Shows item comments.
 Displays additional packing tips and recommendations.
 Provides navigation back to the Home Screen.
+
 <img width="324" height="712" alt="Screenshot 2026-06-10 at 13 38 20" src="https://github.com/user-attachments/assets/931cf71d-76ef-4458-a202-6d2645fc59f4" />
 
 Data Structures Used
