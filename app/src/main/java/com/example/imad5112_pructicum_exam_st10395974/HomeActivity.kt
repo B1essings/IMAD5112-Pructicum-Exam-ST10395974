@@ -74,7 +74,17 @@ class HomeActivity : AppCompatActivity() {
         itemNames.add("Tent")
         categories.add("Shelter")
         quantities.add(1)
-        comments.add("Waterproof tent")
+        comments.add("4-person Waterproof tent")
+
+        itemNames.add("Marshmallows")
+        categories.add("Food")
+        quantities.add(3)
+        comments.add("For S'mores")
+
+        itemNames.add("Flashlight")
+        categories.add("Safety")
+        quantities.add(2)
+        comments.add("Check batteries before use")
 
         itemNames.add("Sleeping Bag")
         categories.add("Sleeping")
