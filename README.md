@@ -119,3 +119,137 @@ Open the project folder.
 Allow Gradle to sync.
 Run the application on an emulator or Android device.
 
+Pseudocode 
+
+
+START
+   Open mainactivity
+     Display application logo
+     Display application title
+     Wait 3 seconds
+   Close MainActivity
+   Open HomeActivity
+
+// HomeActivity
+
+
+
+ Declare parallel arrays:
+       ItemNames
+       Categories
+       Quantities
+       Comments
+
+  Add sample data to arrays:
+     "Tent", "Shelter", 1, "Waterproof tent"
+      "Sleeping Bag", "Sleeping", 2, "Warm and comfortable"
+      "Water Bottle", "Hydration", 3, "Filled before trip"
+
+ Call DisplayItems
+  Call CalculateTotalItems
+           WHEN Add Item button is clicked
+             Read Item Name
+             Read Category
+             Read Quantity
+             Read Comment
+      IF any field is empty THEN
+         Display "Please complete all fields"
+      ELSE
+         Add Item Name to ItemNames array
+         Add Category to Categories array
+         Add Quantity to Quantities array
+         Add Comment to Comments array
+         Call DisplayItems
+         Call CalculateTotalItems
+         Clear input fields
+          Display "Item Added Successfully"
+     ENDIF
+
+
+   WHEN 
+   View Details button is clicked
+      Open DetailActivity
+      Send ItemNames array
+      Send Categories array
+      Send Quantities array
+      Send Comments array
+   END WHEN
+
+END
+
+
+//Function: CalculateTotalItems
+
+START
+
+  Set TotalItems = 0
+    FOR each Quantity in Quantities array
+    TotalItems = TotalItems + Quantity
+NEXT
+
+   Display TotalItems
+
+END
+
+
+
+//Function: DisplayItems
+START
+   Set Output = ""
+   FOR each position in ItemNames array
+Output = Output +
+         Item Name +
+         Category +
+         Quantity
+
+   NEXT
+    Display Output
+END
+
+//Function: ClearFields
+START
+   Clear Item Name textbox
+   Clear Category textbox
+   Clear Quantity textbox
+   Clear Comments textbox
+END
+
+//DetailActivity
+START
+    Receive ItemNames array
+    Receive Categories array
+    Receive Quantities array
+    Receive Comments array
+    Set Output = ""
+    FOR each position in ItemNames array
+     Display Item Name
+   Display Category
+   Display Quantity
+   Display Comment
+
+
+  NEXT
+
+   Display Packing Tips
+   Pack only essentials
+   Carry extra water
+   Bring a first aid kit
+   Check weather conditions
+    Provide Back button
+   WHEN Back button is clicked
+   Return to HomeActivity
+END WHEN
+END
+
+//Overall Program Flow
+START APPLICATION
+     Display Splash Screen
+     Wait 3 seconds
+Open Home Screen
+     User enters camping gear information
+     User adds items to arrays
+System calculates total packed items using a loop
+    User views detailed information
+System displays all item details and packing tips
+User returns to Home Screen
+END APPLICATION
